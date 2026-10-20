@@ -1,0 +1,12 @@
+# Codex가 만든 작업 폴더(프롬프트·참고 그림·로그·결과) — 사람마다 다르고 용량이 큼
+/data/
+
+# 내가 만든 모델은 올리지 않는다. 예시 모델 하나만 저장소에 포함한다.
+/models/*
+!/models/model_mv6262w1/
+
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.env

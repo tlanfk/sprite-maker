@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스프라이트 제작기</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand"><i data-icon="logo"></i><b>스프라이트 제작기</b></div>
+  <div class="model-head" id="modelHead" hidden>
+    <input id="modelName" maxlength="40" aria-label="모델 이름" title="눌러서 모델 이름 바꾸기">
+    <span class="tag" id="modelTag"></span>
+  </div>
+  <div class="bar-right">
+    <span class="busy" id="busy" hidden><span class="dot"></span><span id="busyText"></span></span>
+    <span class="save-state" id="saveState"></span>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="side">
+    <div class="side-head">
+      <h2>모델</h2>
+      <button class="btn small" id="newModel"><i data-icon="plus"></i>새 모델</button>
+    </div>
+    <ul class="model-list" id="modelList"></ul>
+  </aside>
+
+  <main>
+    <section class="welcome panel" id="welcome">
+      <i data-icon="logo" class="big-icon"></i>
+      <h1>모델을 하나 만들어 시작해요</h1>
+      <p>모델은 한 개체(캐릭터·몬스터·소품)예요. 정면 기준 그림 → 방향 → 애니메이션 → 색 → 검사 순서로 만들어요.</p>
+      <button class="btn primary" id="welcomeNew"><i data-icon="plus"></i>새 모델 만들기</button>
+    </section>
+
+    <div id="workspace" hidden>
+      <nav class="steps" id="steps">
+        <button data-step="base"><span>1</span>기준 모델</button>
+        <button data-step="dirs"><span>2</span>방향</button>
+        <button data-step="anim"><span>3</span>애니메이션</button>
+        <button data-step="color"><span>4</span>색상</button>
+        <button data-step="check"><span>5</span>검사·내보내기</button>
+      </nav>
+
+      <!-- 1. 기준 모델 -->
+      <section class="step" data-step="base">
+        <div class="cols">
+          <fieldset class="panel form" id="baseForm">
+            <div class="locked-note" id="lockNote" hidden><i data-icon="lock"></i>확정된 모델이에요. 바꾸려면 오른쪽에서 확정을 풀어 주세요.</div>
+
+            <h3>참고 그림 <small>(선택)</small></h3>
+            <div class="ref-row">
+              <div class="ref-box" id="refBox"></div>
+              <div>
+                <div class="btn-row">
+                  <button class="btn small" id="refPick"><i data-icon="upload"></i>참고 그림 올리기</button>
+                  <button class="btn small" id="refClear">지우기</button>
+                </div>
+                <p class="hint">디자인·색을 참고할 그림이에요. 그대로 쓰지 않고 기준 모델로 새로 그려요.</p>
+              </div>
+            </div>
+
+            <h3>종류</h3>
+            <div class="cards three" id="typeCards"></div>
+
+            <h3>설명</h3>
+            <textarea id="fDesc" maxlength="2000" placeholder="예: 빨간 망토를 두른 작은 기사, 은색 투구와 갑옷"></textarea>
+
+            <h3>시점 <span class="help" id="viewHelp" role="button" tabindex="0" aria-label="시점 그림으로 보기">?</span></h3>
+            <div class="cards two" id="viewCards"></div>
+
+            <div class="sliders">
+              <div class="slider"><div class="slider-top"><span>너비</span><b id="vW"></b></div><input type="range" id="fW" min="8" max="256"></div>
+              <div class="slider"><div class="slider-top"><span>높이</span><b id="vH"></b></div><input type="range" id="fH" min="8" max="256"></div>
+              <div class="slider"><div class="slider-top"><span>캐릭터 키</span><b id="vHeight"></b></div><input type="range" id="fHeight" min="4"></div>
+              <div class="slider"><div class="slider-top"><span>바닥선</span><b id="vGround"></b></div><input type="range" id="fGround" min="1"></div>
+              <div class="slider"><div class="slider-top"><span>중심선</span><b id="vCenter"></b></div><input type="range" id="fCenter" min="1"></div>
+            </div>
+            <p class="hint">모든 그림·프레임이 같은 크기와 같은 바닥선·중심선을 써요. 바닥선은 발이 닿는 줄이에요.</p>
+          </fieldset>
+
+          <div class="right-col">
+            <div class="panel stage-panel">
+              <div class="stage-head">
+                <h3>생성된 스프라이트</h3>
+                <div class="toggles">
+                  <label class="chk"><input type="checkbox" id="showGuides" checked>기준선</label>
+                  <label class="chk"><input type="checkbox" id="showGrid">격자</label>
+                </div>
+              </div>
+              <div class="stage" id="baseStage"><canvas id="baseCanvas"></canvas><div class="stage-empty" id="baseEmpty">아직 스프라이트가 없어요</div></div>
+              <dl class="stats" id="baseStats"></dl>
+              <p class="locked-note" id="sizeNote" hidden></p>
+              <div class="actions">
+                <button class="btn primary" id="genBase"><i data-icon="wand"></i>스프라이트 그리기</button>
+                <button class="btn" id="upBase"><i data-icon="upload"></i>이미지 올리기</button>
+                <button class="btn" id="upSheet"><i data-icon="sheet"></i>8방향 시트</button>
+              </div>
+              <div class="approve-box" id="approveBox"></div>
+            </div>
+
+            <fieldset class="panel form" id="baseForm2">
+              <div class="label-row"><h3>프레임</h3><b class="size-now" id="sizeNow"></b></div>
+              <div class="chips" id="framePresets"></div>
+
+              <h3>외곽선</h3>
+              <div class="outline-row">
+                <canvas class="outline-demo" id="outlineDemo"></canvas>
+                <div class="slider">
+                  <div class="slider-top"><span>진하기</span><b id="vOutline"></b></div>
+                  <input type="range" id="fOutline" min="0" max="100" step="1" aria-label="외곽선 진하기">
+                  <div class="slider-steps"><span>없음</span><span>검정</span></div>
+                </div>
+              </div>
+              <p class="hint">오른쪽으로 갈수록 그림 가장자리가 진해져요. 낮으면 같은 색 계열에서 조금 어두운 색, 끝까지 가면 가장 어두운 색으로 칠해요. 그림 크기는 그대로예요.</p>
+
+              <h3>색 개수 <span class="help" id="budgetHelp" role="button" tabindex="0" aria-label="색 개수 설명">?</span></h3>
+              <label class="inline">색 예산<input type="number" id="fBudget" min="2" max="48"></label>
+              <p class="hint" id="budgetHint" data-t="budget_hint"></p>
+            </fieldset>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. 방향 -->
+      <section class="step" data-step="dirs">
+        <div class="need-approve panel" hidden><i data-icon="lock"></i><p>먼저 1단계에서 기준 모델을 확정해 주세요. 다른 방향은 확정된 기준 그림을 따라 그려요.</p><button class="btn" data-goto="base">기준 모델로</button></div>
+        <div class="panel step-body">
+          <div class="toolbar">
+            <div class="seg" id="dirCount">
+              <button data-n="8">8방향</button><button data-n="4">4방향</button><button data-n="2">좌우만</button>
+            </div>
+            <label class="chk"><input type="checkbox" id="mirrorRight">오른쪽은 왼쪽을 좌우 반전</label>
+            <span class="grow"></span>
+            <button class="btn" id="dirSheet"><i data-icon="sheet"></i>가로 시트 올리기</button>
+            <button class="btn primary" id="fillDirs"><i data-icon="wand"></i>빈 방향 그리기</button>
+          </div>
+          <div class="compass" id="dirGrid"></div>
+          <p class="hint center">칸 아래 버튼으로 다시 그리기·올리기·비우기를 해요. 반전한 방향은 원래 방향을 바꾸면 함께 바뀌어요.</p>
+        </div>
+      </section>
+
+      <!-- 3. 애니메이션 -->
+      <section class="step" data-step="anim">
+        <div class="need-approve panel" hidden><i data-icon="lock"></i><p>먼저 1단계에서 기준 모델을 확정해 주세요.</p><button class="btn" data-goto="base">기준 모델로</button></div>
+        <div class="cols anim-cols">
+          <div class="panel form">
+            <h3>동작</h3>
+            <div class="chips" id="actionChips"></div>
+            <input class="wide" id="customAct" maxlength="300" placeholder="직접 적기 — 예: 두 손을 머리 위로 들었다가 앞쪽 아래로 내려치기">
+            <h3>프레임 수</h3>
+            <div class="chips" id="frameChips"></div>
+            <p class="hint">걷기 4~6, 공격 4~6, 대기 2~4가 보통이에요. 많을수록 부드럽지만 프레임끼리 모양이 흔들리기 쉬워요.</p>
+            <div class="label-row"><h3>방향</h3><button class="link" id="animAll">모두 선택</button></div>
+            <div class="chips" id="animDirChips"></div>
+            <button class="btn primary wide-btn" id="animGen"><i data-icon="film"></i><span id="animGenLabel">애니메이션 만들기</span></button>
+            <p class="hint">방향 하나당 Codex 1번, 1~3분 걸려요. 1번 프레임은 정지 그림과 같은 자세로 그리게 해서 크기를 맞춰요.</p>
+          </div>
+          <div class="anim-list" id="animList"></div>
+        </div>
+      </section>
+
+      <!-- 4. 색상 -->
+      <section class="step" data-step="color">
+        <div class="cols">
+          <div class="panel form">
+            <div class="label-row">
+              <h3><span data-t="ramp_title"></span> <small data-t="ramp_sub"></small> <span class="help" id="fileHelp" role="button" tabindex="0" aria-label="팔레트 파일 설명">?</span></h3>
+              <span class="tag" id="paletteTag"></span>
+            </div>
+            <div class="locked-note" id="rampLock" hidden><i data-icon="lock"></i><span data-t="ramp_lock"></span></div>
+            <div id="ramps"></div>
+            <p class="hint" id="rampHint" data-t="ramp_hint"></p>
+            <div class="actions">
+              <button class="btn" id="paletteImport"><i data-icon="folder"></i><span data-t="btn_import"></span></button>
+              <button class="btn ghost" id="paletteAuto"><i data-icon="palette"></i><span data-t="btn_auto"></span></button>
+            </div>
+            <p class="hint" data-t="import_hint"></p>
+            <dl class="stats" id="colorStats"></dl>
+          </div>
+          <div class="panel form">
+            <h3><span data-t="variant_title"></span> <small data-t="variant_sub"></small></h3>
+            <p class="hint" data-t="variant_hint"></p>
+            <div class="grid3">
+              <label><span data-t="variant_ramp_label"></span><select id="varRamp"></select></label>
+              <label>새 색<input type="color" id="varColor" value="#3a7bd5"></label>
+              <label>이름<input id="varName" maxlength="30" placeholder="예: 파랑"></label>
+            </div>
+            <div class="var-preview" id="varPreview"></div>
+            <div class="actions"><button class="btn primary" id="varSave"><i data-icon="swap"></i>색 변형 저장</button></div>
+            <h3>저장한 색 변형</h3>
+            <div id="varList"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. 검사·내보내기 -->
+      <section class="step" data-step="check">
+        <div class="panel step-body">
+          <div class="toolbar">
+            <div class="summary" id="checkSummary"></div>
+            <span class="grow"></span>
+            <button class="btn" id="recheck"><i data-icon="shield"></i>다시 검사</button>
+            <button class="btn primary" id="exportBtn"><i data-icon="download"></i>통과한 것 내보내기</button>
+          </div>
+          <p class="hint" id="exportHint">검사: 캔버스 크기, 바닥선, 키 변화(±10%), 팔레트 밖 색 0, 반투명 0, 색 예산, 재질이 애매한 픽셀. 공격·점프처럼 일부러 땅을 떠나는 동작은 1번 프레임만 바닥선을 봐요.</p>
+          <div class="table-wrap"><table class="check-table" id="checkTable"></table></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<!-- 시점 ? 에 마우스를 올리면 가운데에 크게 -->
+<div class="popup view-guide" id="viewGuide" hidden></div>
+<!-- 색상 ? 에 마우스를 올리면 팔레트 파일 설명 -->
+<div class="popup file-guide" id="fileGuide" hidden><h3 id="helpTitle"></h3><pre id="helpFile"></pre></div>
+<!-- 색 개수 ? -->
+<div class="popup file-guide" id="budgetGuide" hidden>
+  <h3>색 개수는 이럴 때 쓰여요</h3>
+  <pre>스프라이트를 그려야 쓰여요.
+
+① 스프라이트 그리기
+   Codex에게 "이 개수 정도의 색으로 그려 줘"라고 전해요.
+
+② 그림이 나온 뒤
+   그 그림에서 이 개수만큼 대표 색을 뽑아 재질별 색 묶음을 만들고,
+   그 색으로만 다시 칠해요. 확정 전에는 숫자를 바꾸면
+   다시 그리지 않아도 바로 다시 칠해져요.
+
+③ 검사
+   쓴 색이 이 개수보다 많으면 '주의'로 알려 줘요.
+
+팔레트 파일을 불러왔거나, 이미 그린 픽셀 그림을 그대로 쓸 때는
+②가 적용되지 않고 검사에만 쓰여요.</pre>
+</div>
+
+<input type="file" id="fileInput" accept="image/*" hidden>
+<input type="file" id="paletteInput" accept=".hex,.txt,.gpl,.json" hidden>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

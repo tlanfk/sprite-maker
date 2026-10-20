@@ -1,0 +1,13 @@
+{
+  "name": "sprite-maker",
+  "version": "1.0.0",
+  "description": "Codex로 2D 게임용 픽셀 스프라이트(8방향·애니메이션·색상 변형)를 만들고 검사·내보내기까지 하는 로컬 웹 도구",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

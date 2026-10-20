@@ -1,0 +1,222 @@
+[
+  {
+    "item": "정지 · 남",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 9,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "정지 · 남서",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 7,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "정지 · 서",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 9,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "정지 · 북서",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 8,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "정지 · 북",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 8,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "정지 · 북동",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 8,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "정지 · 동",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 7,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "정지 · 남동",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 9,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "걷기 · 서 · 1",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 9,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "걷기 · 서 · 2",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 9,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "걷기 · 서 · 3",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 9,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "걷기 · 서 · 4",
+    "size": "64×64",
+    "ground": 56,
+    "height": 50,
+    "outside": 0,
+    "semi": 0,
+    "colors": 9,
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 남",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 남서",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 서",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 북서",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 북",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 북동",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 동",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  },
+  {
+    "item": "색 변형 파랑 · 남동",
+    "size": "64×64",
+    "ground": "-",
+    "height": "-",
+    "outside": 0,
+    "semi": 0,
+    "colors": "-",
+    "notes": [],
+    "result": "pass"
+  }
+]

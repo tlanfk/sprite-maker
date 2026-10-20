@@ -1,0 +1,79 @@
+{
+  "model": "전사 치비",
+  "exported": "2026-10-13T02:35:54.564Z",
+  "type": "human",
+  "view": "low",
+  "canvas": {
+    "w": 64,
+    "h": 64
+  },
+  "pivot": {
+    "x": 32,
+    "y": 56
+  },
+  "ground_y": 56,
+  "height": 50,
+  "outline": "none",
+  "palette": [
+    {
+      "name": "갈색",
+      "colors": [
+        "#692827",
+        "#684630",
+        "#B94331",
+        "#A97042"
+      ]
+    },
+    {
+      "name": "주황",
+      "colors": [
+        "#C48857",
+        "#EDB981",
+        "#E2BF8A"
+      ]
+    },
+    {
+      "name": "무채색",
+      "colors": [
+        "#382A29",
+        "#FFEFD4"
+      ]
+    }
+  ],
+  "color_budget": 12,
+  "sheet_order": [
+    "down",
+    "down_left",
+    "left",
+    "up_left",
+    "up",
+    "up_right",
+    "right",
+    "down_right"
+  ],
+  "animations": {
+    "walk": {
+      "label": "걷기",
+      "action": "a smooth looping walk cycle, walking in place",
+      "frames": 4,
+      "fps": 10,
+      "loop": true,
+      "directions": [
+        "left"
+      ],
+      "hands": {
+        "left": [
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    }
+  },
+  "variants": [
+    "파랑"
+  ],
+  "hands_note": "x,y = 손잡이를 쥔 픽셀(프레임 왼쪽 위 0,0) · angle = 손잡이→무기 끝 방향(도, 0=오른쪽, 90=아래) · behind = 몸 뒤 · null = 안 찍음",
+  "excluded": []
+}

@@ -1,0 +1,114 @@
+{
+  "id": "model_mv6262w1",
+  "name": "전사 치비",
+  "created": "2026-10-13T02:25:02.497Z",
+  "updated": "2026-10-13T04:15:12.816Z",
+  "type": "human",
+  "view": "side",
+  "frame": {
+    "w": 64,
+    "h": 64
+  },
+  "pivot": {
+    "x": 32,
+    "y": 56
+  },
+  "height": 50,
+  "outline": 0,
+  "budget": 12,
+  "description": "",
+  "refUrl": null,
+  "palette": {
+    "source": "auto",
+    "ramps": [
+      {
+        "name": "빨강",
+        "colors": [
+          "#692827",
+          "#684630",
+          "#B94331",
+          "#A97042"
+        ]
+      },
+      {
+        "name": "주황",
+        "colors": [
+          "#C48857",
+          "#EDB981",
+          "#E2BF8A"
+        ]
+      },
+      {
+        "name": "무채색",
+        "colors": [
+          "#382A29",
+          "#FFEFD4"
+        ]
+      }
+    ]
+  },
+  "base": {
+    "kind": "upload",
+    "url": "/models/model_mv6262w1/uploads/S_mv62642o.png",
+    "approved": true
+  },
+  "dirs": {
+    "SW": {
+      "kind": "upload",
+      "url": "/models/model_mv6262w1/uploads/SW_mv62642r.png"
+    },
+    "W": {
+      "kind": "upload",
+      "url": "/models/model_mv6262w1/uploads/W_mv62642t.png"
+    },
+    "NW": {
+      "kind": "upload",
+      "url": "/models/model_mv6262w1/uploads/NW_mv62642u.png"
+    },
+    "N": {
+      "kind": "upload",
+      "url": "/models/model_mv6262w1/uploads/N_mv62642v.png"
+    },
+    "NE": {
+      "kind": "upload",
+      "url": "/models/model_mv6262w1/uploads/NE_mv62642x.png"
+    },
+    "E": {
+      "kind": "upload",
+      "url": "/models/model_mv6262w1/uploads/E_mv62642z.png"
+    },
+    "SE": {
+      "kind": "upload",
+      "url": "/models/model_mv6262w1/uploads/SE_mv626431.png"
+    }
+  },
+  "dirCount": 8,
+  "mirrorRight": true,
+  "anims": [
+    {
+      "slug": "walk",
+      "label": "걷기",
+      "text": "a smooth looping walk cycle, walking in place",
+      "grounded": true,
+      "frames": 4,
+      "dirs": {
+        "W": {
+          "kind": "codex",
+          "url": "/models/model_mv6262w1/uploads/anim_walk_left_sheet.png"
+        }
+      },
+      "hands": {}
+    }
+  ],
+  "variants": [
+    {
+      "name": "파랑",
+      "map": {
+        "#692827": "#003B89",
+        "#684630": "#2E4F7E",
+        "#B94331": "#0064F5",
+        "#A97042": "#427ED3"
+      }
+    }
+  ]
+}
