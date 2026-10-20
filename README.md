@@ -175,13 +175,11 @@ export/
 
 ## HTTP API
 
-| 메⁠서⁠드⁠·⁠경⁠로 | 설명 |
-|---|---|
-| `POST /api/generate` | `{ prompt, refs: [dataURL…], size: "1024x1024" \| "1536x1024" }` → Codex로 그림 1장 생성, `{ url }` 반환 |
-| `GET /api/models` | 모델 목록 (이름·수정 시각·확정 여부·썸네일 유무) |
-| `GET /api/models/:id` | `model.json` 반환 |
-| `POST /api/models/:id` | `{ model, files: { "uploads/x.png": dataURL … } }` 저장 |
-| `GET /models/*`, `GET /codex/*` | 모델 폴더·Codex 작업 폴더의 파일 제공 |
+- `POST /api/generate` — `{ prompt, refs: [dataURL…], size: "1024x1024" \| "1536x1024" }` → Codex로 그림 1장 생성, `{ url }` 반환
+- `GET /api/models` — 모델 목록 (이름·수정 시각·확정 여부·썸네일 유무)
+- `GET /api/models/:id` — `model.json` 반환
+- `POST /api/models/:id` — `{ model, files: { "uploads/x.png": dataURL … } }` 저장
+- `GET /models/*`, `GET /codex/*` — 모델 폴더·Codex 작업 폴더의 파일 제공
 
 저장 경로는 이름·확장자(`.png` `.json`)를 제한하고 상위 폴더로 나가지 못하게 막아 두었습니다.
 
